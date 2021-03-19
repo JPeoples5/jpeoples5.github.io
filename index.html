@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pomodoro Timer</title>
+
+    <!-- Font Awesome 5.15.2 CSS-->
+    <link href="./assets/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+    <div id="app-wrapper" onmousemove=showEditBtn() onmouseleave="hideEditBtn()">
+        <span class="edit-btn hidden">
+            <i class="fas fa-edit" onclick="displayEditTimer()"></i>
+        </span>
+
+        <div class="content-wrapper">
+
+            <div class="pause-play-icon">
+                <i class="fas fa-play" disabled onclick="startTimer()"></i>
+                <i class="fas fa-pause hidden" onclick="pauseTimer()"></i>
+            </div>
+            <div class="countdown-time-wrapper ">
+                <div id="countdown-time">35 : 00</div>
+            </div>
+            <div class="edit-time-wrapper hidden">
+                <input id="number-input" type="number" min="01" max="999" placeholder="0-999">
+                <div id="set-timer-btn" type="submit" onclick="setTimer()">SET</div>
+            </div>
+            <div class="reset-timer">
+                <i class="fas fa-undo" onclick="resetTimer()"></i>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="./assets/timer.js"></script>
+</body>
+
+</html>
