@@ -41,11 +41,7 @@ function setTimer() {
 }
 
 function clearSetNumber() {
-<<<<<<< HEAD
-    document.querySelector("#number-input").value = 1
-=======
     document.querySelector("#number-input").value = ""
->>>>>>> Add clear timer function because you cannot backspace in OBS.
 }
 
 // Timer logic
