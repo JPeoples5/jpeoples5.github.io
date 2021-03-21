@@ -12,11 +12,19 @@ let countdownTime = document.querySelector("#countdown-time")
 let minutesVal = 35
 let secondsVal = 00
 
-let subtractSeconds
+let subtractSecond
 let lastSetTime = `${minutesVal} : ${secondsVal}`
 
-
+//Logic
 function displayEditTimer() {
+    //stop timer
+    clearInterval(subtractSecond)
+
+    if (isHidden(playIcon)) {
+        displayElement(hide, pauseIcon)
+        displayElement(show, playIcon)
+    }
+
     displayElement(hide, countdownTimeWrapper)
     displayElement(show, editTimeWrapper)
     displayElement(hide, editBtn)
@@ -32,35 +40,44 @@ function setTimer() {
     displayElement(show, countdownTimeWrapper)
 }
 
+function clearSetNumber() {
+<<<<<<< HEAD
+    document.querySelector("#number-input").value = 1
+=======
+    document.querySelector("#number-input").value = ""
+>>>>>>> Add clear timer function because you cannot backspace in OBS.
+}
 
 // Timer logic
 function startTimer() {
-    togglePlayPauseIcon()
     isPaused = false
-    subtractSeconds = setInterval(secondsCountdown, 1000)
+    togglePlayPauseIcon()
+
+    // call secondsCountdown every 1s
+    subtractSecond = setInterval(secondsCountdown, 1000)
 
     function secondsCountdown() {
         if (!isPaused) {
             secondsVal--
 
+            //decrease minute, reset secs to 59
             if (secondsVal <= 0) {
                 secondsVal = 59
                 minutesVal--
             }
 
+            //example => `12 : 09`
             secondsVal < 10 ? secondsVal = "0" + secondsVal : null
             // Countdown is finished
             minutesVal < 0 ? breakTime() : countdownTime.innerHTML = `${minutesVal} : ${secondsVal}`
         }
     }
-    // reset minutes value to the minutes portion of the lastSetTime string
-    minutesVal = lastSetTime.split(" ")[0]
 }
 
 function pauseTimer() {
     togglePlayPauseIcon()
     isPaused = true
-    clearInterval(subtractSeconds)
+    clearInterval(subtractSecond)
 }
 
 //Reset the countdown Time to the lastSetTime
@@ -68,7 +85,13 @@ function resetTimer() {
     displayElement(hide, pauseIcon)
     displayElement(show, playIcon)
 
-    clearInterval(subtractSeconds)
+    clearInterval(subtractSecond)
+
+    minutesVal = lastSetTime.split(" ")[0]
+    secondsVal = "00"
+
+    lastSetTime = `${minutesVal} : ${secondsVal}`
+
     countdownTime.innerHTML = lastSetTime
 }
 
@@ -77,6 +100,7 @@ function breakTime() {
     pauseTimer()
     playFinishedAudio()
 }
+
 // TODO: find a bunch of the office quotes and randomize them
 function playFinishedAudio() {
     // audioArr =[]
@@ -92,7 +116,6 @@ function hideEditBtn() {
     !isHidden(countdownTimeWrapper) && !isHidden(editBtn) ? displayElement(hide, editBtn) : null
 }
 
-
 // ################# helper funtions #################
 function isHidden(element) {
     if (element.classList.contains("hidden")) {
@@ -103,17 +126,21 @@ function isHidden(element) {
 const hide = 'hide'
 const show = 'show'
 function displayElement(displayAction, element) {
-    displayAction == 'show' ? element.classList.remove("hidden") : null
-    displayAction == 'hide' ? element.classList.add("hidden") : null
+    displayAction === 'show' ? element.classList.remove("hidden") : null
+    displayAction === 'hide' ? element.classList.add("hidden") : null
 }
 
 function togglePlayPauseIcon() {
-    if (isHidden(pauseIcon)) {
-        displayElement(hide, playIcon)
-        displayElement(show, pauseIcon)
-    } else {
-        displayElement(hide, pauseIcon)
-        displayElement(show, playIcon)
+    if (editTimeWrapper.classList.contains("hidden")) {
+
+        if (isHidden(pauseIcon)) {
+            displayElement(hide, playIcon)
+            displayElement(show, pauseIcon)
+        } else {
+            displayElement(hide, pauseIcon)
+            displayElement(show, playIcon)
+        }
+
     }
 }
 // ################# helper functions #################

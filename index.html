@@ -19,7 +19,7 @@
 
         <div class="content-wrapper">
 
-            <div class="pause-play-icon">
+            <div class="pause-play-wrapper">
                 <i class="fas fa-play" disabled onclick="startTimer()"></i>
                 <i class="fas fa-pause hidden" onclick="pauseTimer()"></i>
             </div>
@@ -29,6 +29,7 @@
             <div class="edit-time-wrapper hidden">
                 <input id="number-input" type="number" min="01" max="999" placeholder="0-999">
                 <div id="set-timer-btn" type="submit" onclick="setTimer()">SET</div>
+                <div id="set-timer-btn" type="submit" onclick="clearSetNumber()">CLEAR</div>
             </div>
             <div class="reset-timer">
                 <i class="fas fa-undo" onclick="resetTimer()"></i>

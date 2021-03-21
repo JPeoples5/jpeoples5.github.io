@@ -2,7 +2,6 @@
     display: none !important;
 }
 
-
 #app-wrapper{
     margin: 40px 0 0 40px;
     height: 100px;
@@ -39,10 +38,6 @@
     font-size: 4rem;
 }
 
-/* .edit-time-wrapper{
-    font-size: 4rem;
-} */
-
 .edit-time-wrapper input{
     outline: transparent;
     border: #000000;
@@ -56,34 +51,23 @@
     border: #3b5998;
 }
 
-
-
-/* input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-} */
-
 #set-timer-btn{
     display: flex;
     align-items: center;
     padding: 0 6px;
-    background-color: #33ba33;
+    background-color: #42b72a;
     font-size: 10px;
     height: 30px;
-    width: 30px;
-    border-radius: 2px;
-    margin-left: 14px;
-    font-weight: 600;
+    width: 40px;
+    border-radius: 10%;
+    margin-left: 8px;
+    font-weight: 800;
 }
-
 
 #set-timer-btn:hover{
     display: flex;
     align-items: center;
-    background-color: #53A653;
+    background-color: #4dce33;
     cursor: pointer;
 }
 
@@ -93,6 +77,5 @@ font-size: 3.4rem;
 
 #number-input{
     width: 100%;
-
     font-size: 20px;
 }
