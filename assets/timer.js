@@ -57,7 +57,7 @@ function startTimer() {
             secondsVal--
 
             //decrease minute, reset secs to 59
-            if (secondsVal <= 0) {
+            if (secondsVal = 0) {
                 secondsVal = 59
                 minutesVal--
             }
